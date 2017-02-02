@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .weatherModule {
+            background: #f2f2f2;
+            height: 150px;
+            width: 250px;
+            border: 1px dashed #ccc;
+            padding: 1em;
+        }
+    </style>
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+<div ng-app="weather" ng-controller="weatherctrl">
+    <button id="btn" ng-click="getWeather()"> Show Weather </button>
+    <br/>
+    <br/>
+    <div class="weatherModule">
+        <p class="currentConditions" ng-bind-html-unsafe="currentweather.html"></p>
+        <div class="currentIcon" ng-bind-html-unsafe="currentIcon.html"></div>
+
+    </div>
+</div>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.1/angular.min.js"></script>
+<script>
+    var element = "umkdsfn, kansas city, MO, United states";
+    var Index_Of_UN = element.search("United states");
+    element = element.substring(0, Index_Of_UN);
+    var state = element.substring(Index_Of_UN - 4, Index_Of_UN - 2);
+    element = element.substring(0, Index_Of_UN - 6);
+    var Index_Of_Comma = element.search(",");
+    var city = element.substring(Index_Of_Comma + 1, Index_Of_UN - 5);
+
+    var url = "https://api.wunderground.com/api/f02e66aa92a32623/conditions/q/"+state +"/" + city + ".json"
+    angular.module('weather', [])
+
+
+        .controller('weatherctrl', function($scope, $http) {
+            $scope.getWeather = function() {
+
+
+
+                $http.get(url).success(function(data) {
+
+                    console.log(data);
+                    temp = data.current_observation.temp_f;
+                    icon = data.current_observation.icon_url;
+                    weather = data.current_observation.weather;
+                    console.log(temp);
+                    $scope.currentweather = {
+                        html: "Currently " + temp + " &deg; F and " + weather + ""
+                    }
+                    $scope.currentIcon = {
+                        html: "<img src='" + icon + "'/>"
+                    }
+
+                })
+            }
+
+        });
+</script>
+
+
+</html>
+

@@ -1,0 +1,91 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+
+</head>
+
+<body id="wrapper">
+
+
+
+<div id="over" ng-app="weather" ng-controller="weatherctrl">
+    <button style="position: absolute;top: 10px; left:47%; z-index: 99; " id="btn" ng-click="getWeather()"> Get Weather</button>
+
+        <div style="background-color: #999999;opacity: 50%" id="weather_all" class="weatherModule">
+    <p style="float: left ;  position: absolute;background-color: #999999;top: 50%; left:70%; z-index: 99;background-size: 100px" class="currentConditions" ng-bind-html-unsafe="currentweather.html"></p>
+            <div  style="float: left ;position: absolute;background-color: #999999; top: 55%; left: 70%; z-index: 99;background-size: 100px" class="currentIcon" ng-bind-html-unsafe="currentIcon.html"></div>
+            <p style="float: left ;position: absolute;background-color: #999999;top: 50%; left:10%; z-index: 99;background-size: 100px" class="currentConditions" ng-bind-html-unsafe="currentweather2.html"></p>
+            <div style=" position: absolute;top: 55%;background-color: #999999; left:10%; z-index: 99;background-size: 100px class="currentIcon" ng-bind-html-unsafe="currentIcon2.html"></div>
+        </div>
+</div>
+
+    <input id="origin-input" class="controls" type="text"
+           placeholder="Enter an origin location">
+
+    <input id="destination-input" class="controls" type="text"
+           placeholder="Enter a destination location">
+
+    <div id="mode-selector" class="controls">
+
+        <input type="radio" name="type" id="changemode-walking" checked="checked">
+        <label for="changemode-walking">Walking</label>
+
+        <input type="radio" name="type" id="changemode-transit">
+        <label for="changemode-transit">Transit</label>
+
+        <input type="radio" name="type" id="changemode-driving">
+        <label for="changemode-driving">Driving</label>
+
+        </div>
+
+    <div id="map">
+
+    </div>
+
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.1/angular.min.js"></script>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.1/angular.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD1ozUmvAopZqB6LVGY949Nm73-Fp-dpW8&libraries=places&callback=initMap"
+        async defer></script>
+<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
+<script src="js/plugins.js"></script>
+<script src="js/main.js"></script>
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+<script>
+    (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+        e.src='https://www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+    ga('create','UA-XXXXX-X','auto');ga('send','pageview');
+</script>
+</body>
+</html>
+
+</body>
+</html>
+
+
+
+
