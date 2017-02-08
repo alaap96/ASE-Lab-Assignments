@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="google-signin-client_id" content="941579984436-45vnc6a6c427779tgjmfffc2d2b6f0hd.apps.googleusercontent.com">
+    <link rel = "stylesheet" type = "text/css" href = "styles.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="login.js" type="text/javascript"> </script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+<div ng-app="myLogin" ng-controller="LoginController">
+
+    <div class = input>
+    <h1 class="jumbotron" align="center">Welcome to Login Page</h1>
+    </div>
+    <div class="container">
+        <form>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" ng-model="uname" class="form-control" id="email" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+                <label for="pwd1" >Password:</label>
+                <input type="password" class="form-control" id="pwd1"  ng-model = "pwd" placeholder="Enter password">
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox"> Remember me</label>
+            </div>
+            <button  ng-click ="login(uname, pwd)"class="btn btn-primary">Submit</button><br><br>
+            <h3>Not yet registered!</h3>
+            <button  ng-click ="register()"class="btn btn-primary">Register</button>
+        </form>
+    </div><br>
+
+        <div style="position: relative; left: 8%" class="g-signin2" data-onsuccess="onSignIn" data-scope="https://www.googleapis.com/auth/plus.login"
+             data-accesstype="offline" data-redirecturi="http://localhost:63342/Lab%20Assignment%202/search.html" ></div>
+        <br/><br/>
+    </div>
+</div>
+</body>
+</html>
+
+
+
+
+
