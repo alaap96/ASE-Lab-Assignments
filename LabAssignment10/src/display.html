@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="js/index.js"></script>
+<head>
+
+    <style type="text/css">
+        .background {
+            position: fixed;
+            height: 100%;
+            width: 100%;
+            z-index: 0;
+            background-image: url(bg1.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+<body class="background">
+
+<div ng-app="demoMongo" ng-controller="crudcontrol" ng-init="init()">
+
+    <h4 align="center"> Users List in the Database!!</h4>
+    <div id ="test1"></div>
+    <table border="2" align="center">
+    <tr >
+        <th>Firstname</th>
+        <th>Lastname</th>
+    </tr>
+    <tr ng-repeat="x in records">
+        <td>{{x.fname}}</td>
+        <td>{{x.lname}}</td>
+    </tr>
+    </table><br>
+    <div id="updatediv"  align="center">
+        Firstname <input type="text" name="fname" ng-model="fnam1"><br><br>
+        Lastname <input type="text" name="lname" ng-model="lnam1"><br><br>
+        <button ng-click ="updateuser()">Update</button>
+        <button ng-click="deleteuser()">Delete</button>
+    </div>
+   <!--<p ng-repeat="x in records">{{x}}</p> -->
+
+
+</div>
+</body>
+</html>
